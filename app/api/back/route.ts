@@ -137,5 +137,5 @@ export async function POST(request) {
     } catch (error) {
     }
 
-    return Response.json({ key: "1", order_id: "", mail: mail });
+    return Response.json({ key: "1", order_id: "", mail: data2 });
 }
