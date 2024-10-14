@@ -52,7 +52,6 @@ export async function POST(request) {
 
         const item_name = searchParams.get('item_name');
         const code = searchParams.get('code');
-        const item2 = params.get('PURCHASE_ID');
 
         if (code === "12345678") {
 
@@ -103,7 +102,9 @@ export async function POST(request) {
         }
 
         const myOptions = { status: 200, statusText: "OK", "Content-Type": "text/plain" };
-        const myResponse = new Response(url + "," + lic + "," + code + "," + item_number + "," + item2, myOptions);
+		
+		//url + "," + lic + "," + code + "," + item_number
+        const myResponse = new Response(lic, myOptions);
         return myResponse;
 
     } catch (error) {
