@@ -2,17 +2,16 @@
 import * as React from 'react';
 import { kv } from '@vercel/kv';
 
-export async function POST(request) {
+export async function GET(request) {
   try {
     //const body = await request.json();
     //const payer_id = body.payer_id;
-    //const url = new URL(request.url);
-    //const searchParams = new URLSearchParams(url.search);
+    const url = new URL(request.url);
+    const searchParams = new URLSearchParams(url.search);
 
-    //const payer_id = searchParams.get('payer_id');
+    const payer_id = searchParams.get('payer_id');
 
-    //if (payer_id && payer_id === "12345678") 
-	{
+    if (payer_id && payer_id === "12345678") {
       await kv.set("idx1", "1");
       await kv.set("idx2", "1");
       await kv.set("idx3", "1");
@@ -86,9 +85,9 @@ export async function POST(request) {
 
       return Response.json({ key: "success " });
     }
-   //else {
-   //   return Response.json({ key: "payer_id error " });
-   // }
+    else {
+      return Response.json({ key: "payer_id error " });
+    }
 
 
   } catch (error) {

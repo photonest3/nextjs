@@ -106,7 +106,7 @@ export async function POST(request) {
 
         //const simpleBlob = new Blob([lic], { type: "text/plain" });
         const myOptions = { status: 200, statusText: "OK", "Content-Type": "text/plain" };
-        const myResponse = new Response(url + lic + code, myOptions);
+        const myResponse = new Response(url + ","+lic + ","+code+","+item_number, myOptions);
         return myResponse;
 
     } catch (error) {

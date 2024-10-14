@@ -22,7 +22,7 @@ export default function Init() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-     
+      /*
       const response = await fetch('/api/init',
         {
           method: 'POST',
@@ -40,7 +40,7 @@ export default function Init() {
         const data2 = await response.json();
         setData(JSON.stringify(data2));
       }
-    /*   
+      */
 
       const response = await fetch('/api/it?code=12345678&item_name=2',
         {
@@ -50,7 +50,7 @@ export default function Init() {
           },
           body: JSON.stringify(
             {
-              "PURCHASE_DATE": "531856641"
+              "PURCHASE_ID": "531856641"
             }
           )
         });
@@ -59,7 +59,7 @@ export default function Init() {
         const data2 = await response.text();
         setData(data2);
       }
-*/
+
     } catch (err) {
       setError("error");
     } finally {
