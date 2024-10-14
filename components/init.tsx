@@ -49,7 +49,7 @@ export default function Init() {
             'Content-Type': 'application/x-www-form-urlencoded'
           },
           body:  "PURCHASE_ID=531856641"
-          )
+         
         });
 
       if (isMounted.current) {
