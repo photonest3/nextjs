@@ -111,6 +111,7 @@ export async function POST(request) {
 
     } catch (error) {
     }
+	
 
     const myOptions = { status: 500, statusText: "error", "Content-Type": "text/plain" };
     const myResponse = new Response(lic, myOptions);
