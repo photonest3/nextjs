@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" href="./assets/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="./assets/css/main.css" rel="stylesheet" />
+</head>
+<body >
+    
+
+    <script type="text/javascript">
+
+        function createlic(type) {
+            var lic = "762275A4D516FED1CB9D32EE141989AB";
+            if (type == 2) {
+                lic = "F437BBBCE78625F491794FAAD76729E1";
+            }
+            else if (type == 3) {
+                lic = "B7DB508F910691D03EAC81CB631AE3FC";
+            }
+            var dt1 = new Date();
+            var dt2 = new Date(2024, 1, 1);
+            var t = dt1.getTime() - dt2.getTime();
+            lic += Math.ceil(t / 1000 / 60 / 60 / 24).toString(16).toUpperCase();
+            return lic;
+        }
+
+        window.onload = function () {
+            var lic = createlic(3);
+            alert(lic);
+
+        };
+
+    </script>
+</body>
+</html>
