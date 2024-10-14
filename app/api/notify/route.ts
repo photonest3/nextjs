@@ -32,7 +32,7 @@ export async function POST(request) {
         if (receiver_id !== null && item_number !== null && item_name !== null && payment_status === "Completed") {
 
             let ipn_url: string = "https://ipnpb.paypal.com/cgi-bin/webscr";
-            if (receiver_id !== process.env.PAYPAL_RECEIVER_ID) {
+            if (receiver_id == process.env.PAYPALL_SANDBOX_RECEIVER_ID) {
                 ipn_url = "https://ipnpb.sandbox.paypal.com/cgi-bin/webscr";
             }
             const res = await fetch(ipn_url,
