@@ -48,10 +48,7 @@ export default function Init() {
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
           },
-          body: JSON.stringify(
-            {
-              "PURCHASE_ID": "531856641"
-            }
+          body:  "PURCHASE_ID=531856641"
           )
         });
 
