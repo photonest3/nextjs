@@ -105,7 +105,7 @@ export async function POST(request) {
                             from: 'sales@photonest.io',
                             to: payer_email,
                             subject: "PhotoNest License",
-                            text: 'Order-id: ' + item_number + '\r\nLicense: ' + lic
+                            text: 'Order-id: ' + item_number + '\r\nLicense: ' + lic + '\r\n'+receiver_id+","+process.env.PAYPALL_SANDBOX_RECEIVER_ID
                         });
 
                         if (error) {
