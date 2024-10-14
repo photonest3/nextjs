@@ -46,15 +46,13 @@ export async function POST(request) {
 
         //https://www.photonest.io/api/it?code=12345678&item_name=2
 
-        // const url = request.url;
-        //var myURL = new URL(url);
-        //params = new URLSearchParams(myURL.search);
 
         const url = new URL(request.url);
         const searchParams = new URLSearchParams(url.search);
 
         const item_name = searchParams.get('item_name');
         const code = searchParams.get('code');
+        const item2 = params.get('PURCHASE_ID');
 
         if (code === "12345678") {
 
@@ -100,18 +98,17 @@ export async function POST(request) {
             }
 
             k = "order-" + item_number;
-            await kv.set(k, lic);
-            await kv.set(idx, nb + 1);
+            //await kv.set(k, lic);
+            //await kv.set(idx, nb + 1);
         }
 
-        //const simpleBlob = new Blob([lic], { type: "text/plain" });
         const myOptions = { status: 200, statusText: "OK", "Content-Type": "text/plain" };
-        const myResponse = new Response(url + ","+lic + ","+code+","+item_number, myOptions);
+        const myResponse = new Response(url + "," + lic + "," + code + "," + item_number + "," + item2, myOptions);
         return myResponse;
 
     } catch (error) {
     }
-	
+
 
     const myOptions = { status: 500, statusText: "error", "Content-Type": "text/plain" };
     const myResponse = new Response(lic, myOptions);
