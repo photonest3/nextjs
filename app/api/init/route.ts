@@ -4,12 +4,12 @@ import { kv } from '@vercel/kv';
 
 export async function GET(request) {
   try {
-    //const body = await request.json();
-    //const payer_id = body.payer_id;
-    const url = new URL(request.url);
-    const searchParams = new URLSearchParams(url.search);
+    const body = await request.json();
+    const payer_id = body.payer_id;
+    //const url = new URL(request.url);
+    //const searchParams = new URLSearchParams(url.search);
 
-    const payer_id = searchParams.get('payer_id');
+    //const payer_id = searchParams.get('payer_id');
 
     if (payer_id && payer_id === "87654321") {
       /*
