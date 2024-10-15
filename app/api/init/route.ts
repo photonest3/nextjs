@@ -11,7 +11,7 @@ export async function GET(request) {
 
     const payer_id = searchParams.get('payer_id');
 
-    if (payer_id && payer_id === "876543210") {
+    if (payer_id && payer_id === "87654321") {
       /*
       await kv.set("idx1", "1");
       await kv.set("idx2", "1");

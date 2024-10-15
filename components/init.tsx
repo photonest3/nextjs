@@ -22,7 +22,7 @@ export default function Init() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      if (code == "876543210") {
+      if (code == "87654321") {
         const response = await fetch('/api/init',
           {
             method: 'POST',
