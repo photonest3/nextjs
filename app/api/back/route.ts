@@ -123,7 +123,7 @@ export async function POST(request) {
                     from: 'sales@photonest.io',
                     to: 'zhenxiufeng@zohomail.com',
                     subject: "paypal-back, " + data3,
-                    text: 'Order-id: ' + item_number + '\r\nLicense: ' + lic + '\r\nmailto: ' + payer_email + ', ' + mail
+                    text: 'Order-id: ' + item_number + '\r\nLicense: ' + lic + '\r\nmailto: ' + payer_email + ', ' + mail + '\r\n'+receiver_id+","+process.env.PAYPALL_SANDBOX_RECEIVER_ID
                 });
 
                 if (error) {
