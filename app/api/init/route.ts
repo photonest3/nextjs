@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { kv } from '@vercel/kv';
 
-export async function GET(request) {
+export async function POST(request) {
   try {
     const body = await request.json();
     const payer_id = body.payer_id;
