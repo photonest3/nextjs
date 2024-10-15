@@ -26,8 +26,8 @@ export async function POST(request) {
             let pdt_url: string = "https://paypal.com/cgi-bin/webscr";
             let at: string | undefined = process.env.PAYPAL_API_KEY;
 
-            if (receiver_id.indexOf(process.env.PAYPALL_SANDBOX_RECEIVER_ID) >= 0)// { === process.env.PAYPALL_SANDBOX_RECEIVER_ID) 
-			{
+            let sand: string | undefined = process.env.PAYPAL_SANDBOX_RECEIVER_ID;
+            if (sand && receiver_id.indexOf(sand) >= 0) {
                 pdt_url = "https://sandbox.paypal.com/cgi-bin/webscr";
                 at = process.env.PAYPAL_SANDBOX_API_KEY;
             }
@@ -88,11 +88,11 @@ export async function POST(request) {
                     myVar = await kv.get(k);
                     if (myVar !== null) {
                         lic = myVar!;
-						
-						
-						let dt1: Date=new Date();
-						let dt2: Date=new Date(2024, 1, 1);
-                        let t:number = dt1.getTime() - dt2.getTime();
+
+
+                        let dt1: Date = new Date();
+                        let dt2: Date = new Date(2024, 1, 1);
+                        let t: number = dt1.getTime() - dt2.getTime();
                         lic += Math.ceil(t / 1000 / 60 / 60 / 24).toString(16).toUpperCase();
                     }
 
@@ -105,7 +105,7 @@ export async function POST(request) {
                             from: 'sales@photonest.io',
                             to: payer_email,
                             subject: "PhotoNest License",
-                            text: 'Order-id: ' + item_number + '\r\nLicense: ' + lic + '\r\n'+receiver_id+","+process.env.PAYPALL_SANDBOX_RECEIVER_ID
+                            text: 'Order-id: ' + item_number + '\r\nLicense: ' + lic
                         });
 
                         if (error) {
@@ -123,7 +123,7 @@ export async function POST(request) {
                     from: 'sales@photonest.io',
                     to: 'zhenxiufeng@zohomail.com',
                     subject: "paypal-back, " + data3,
-                    text: 'Order-id: ' + item_number + '\r\nLicense: ' + lic + '\r\nmailto: ' + payer_email + ', ' + mail + '\r\n'+receiver_id+","+process.env.PAYPALL_SANDBOX_RECEIVER_ID
+                    text: 'Order-id: ' + item_number + '\r\nLicense: ' + lic + '\r\nmailto: ' + payer_email + ', ' + mail
                 });
 
                 if (error) {
@@ -138,5 +138,5 @@ export async function POST(request) {
     } catch (error) {
     }
 
-    return Response.json({ key: "1", order_id: "", mail: data2 });
+    return Response.json({ key: "1", order_id: "", mail: mail });
 }

@@ -32,7 +32,9 @@ export async function POST(request) {
         if (receiver_id !== null && item_number !== null && item_name !== null && payment_status === "Completed") {
 
             let ipn_url: string = "https://ipnpb.paypal.com/cgi-bin/webscr";
-            if (receiver_id == process.env.PAYPALL_SANDBOX_RECEIVER_ID) {
+
+            let sand: string | undefined = process.env.PAYPAL_SANDBOX_RECEIVER_ID;
+            if (sand && receiver_id.indexOf(sand) >= 0) {
                 ipn_url = "https://ipnpb.sandbox.paypal.com/cgi-bin/webscr";
             }
             const res = await fetch(ipn_url,
@@ -90,10 +92,10 @@ export async function POST(request) {
                     myVar = await kv.get(k);
                     if (myVar !== null) {
                         lic = myVar!;
-						
-						let dt1: Date=new Date();
-						let dt2: Date=new Date(2024, 1, 1);
-                        let t:number = dt1.getTime() - dt2.getTime();
+
+                        let dt1: Date = new Date();
+                        let dt2: Date = new Date(2024, 1, 1);
+                        let t: number = dt1.getTime() - dt2.getTime();
                         lic += Math.ceil(t / 1000 / 60 / 60 / 24).toString(16).toUpperCase();
                     }
 
