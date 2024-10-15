@@ -33,8 +33,8 @@ export async function POST(request) {
 
             let ipn_url: string = "https://ipnpb.paypal.com/cgi-bin/webscr";
 
-            let sand: string | undefined = process.env.PAYPAL_SANDBOX_RECEIVER_ID;
-            if (sand && receiver_id.indexOf(sand) >= 0) {
+           
+            if (receiver_id===process.env.PAYPAL_SANDBOX_RECEIVER_ID) {
                 ipn_url = "https://ipnpb.sandbox.paypal.com/cgi-bin/webscr";
             }
             const res = await fetch(ipn_url,

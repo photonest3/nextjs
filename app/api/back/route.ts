@@ -26,8 +26,8 @@ export async function POST(request) {
             let pdt_url: string = "https://paypal.com/cgi-bin/webscr";
             let at: string | undefined = process.env.PAYPAL_API_KEY;
 
-            let sand: string | undefined = process.env.PAYPAL_SANDBOX_RECEIVER_ID;
-            if (sand && receiver_id.indexOf(sand) >= 0) {
+            
+            if (receiver_id===process.env.PAYPAL_SANDBOX_RECEIVER_ID) {
                 pdt_url = "https://sandbox.paypal.com/cgi-bin/webscr";
                 at = process.env.PAYPAL_SANDBOX_API_KEY;
             }
