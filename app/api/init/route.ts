@@ -84,7 +84,7 @@ export async function GET(request) {
       await kv.set("key1-18", "486A07B756A5CA200B4AD18EABBC6337");
       await kv.set("key1-19", "00C36BCB6A416BDDF4287E58C43DE470");
 */
-      let s: string = "";
+      let s: string = "idx:";
 
       let myVar: string | null = await kv.get("idx1");
       if (myVar !== null) {
@@ -108,6 +108,8 @@ export async function GET(request) {
 
 
   } catch (error) {
-     return Response.json({ key: "error " });
+     
   }
+  
+  return Response.json({ key: "error " });
 }
