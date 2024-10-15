@@ -10,7 +10,7 @@ export default function Init() {
   const isMounted = useRef(true);
 
   const searchParams = useSearchParams();
-  const payer_id = searchParams.get('payer_id');
+  const code = searchParams.get('code');
 
   useEffect(() => {
     fetchData();
@@ -22,39 +22,40 @@ export default function Init() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
-      /*
-      const response = await fetch('/api/init',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(
-            {
-              "payer_id": payer_id
-            }
-          )
-        });
+      if (code == "876543210") {
+        const response = await fetch('/api/init',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+              {
+                "payer_id": code
+              }
+            )
+          });
 
-      if (isMounted.current) {
-        const data2 = await response.json();
-        setData(JSON.stringify(data2));
+        if (isMounted.current) {
+          const data2 = await response.json();
+          setData(JSON.stringify(data2));
+        }
       }
-      */
+      else if (code == "12345678") {
+        const response = await fetch('/api/it?item_name=2&code=' + code,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: "PURCHASE_ID=531856641"
 
-      const response = await fetch('/api/it?code=12345678&item_name=2',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body:  "PURCHASE_ID=531856641"
-         
-        });
+          });
 
-      if (isMounted.current) {
-        const data2 = await response.text();
-        setData(data2);
+        if (isMounted.current) {
+          const data2 = await response.text();
+          setData(data2);
+        }
       }
 
     } catch (err) {

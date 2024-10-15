@@ -11,7 +11,8 @@ export async function GET(request) {
 
     const payer_id = searchParams.get('payer_id');
 
-    if (payer_id && payer_id === "12345678") {
+    if (payer_id && payer_id === "876543210") {
+      /*
       await kv.set("idx1", "1");
       await kv.set("idx2", "1");
       await kv.set("idx3", "1");
@@ -82,8 +83,24 @@ export async function GET(request) {
       await kv.set("key1-17", "4369EFBA5F9FE89715FFA1D8588D61B6");
       await kv.set("key1-18", "486A07B756A5CA200B4AD18EABBC6337");
       await kv.set("key1-19", "00C36BCB6A416BDDF4287E58C43DE470");
+*/
+      let s: string = "";
 
-      return Response.json({ key: "success " });
+      let myVar: string | null = await kv.get("idx1");
+      if (myVar !== null) {
+        s += myVar!;
+      }
+      myVar = await kv.get("idx2");
+      if (myVar !== null) {
+        s += "," + myVar!;
+      }
+      myVar = await kv.get("idx3");
+      if (myVar !== null) {
+        s += "," + myVar!;
+      }
+      return Response.json({ key: s });
+
+
     }
     else {
       return Response.json({ key: "payer_id error " });
