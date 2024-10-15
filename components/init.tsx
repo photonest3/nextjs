@@ -59,7 +59,7 @@ export default function Init() {
       }
 
     } catch (err) {
-      setError("error");
+      setError(err);
     } finally {
       setIsLoading(false);
     }
