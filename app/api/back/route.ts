@@ -20,14 +20,15 @@ export async function POST(request) {
         const receiver_id = body.receiver_id;
         //const payer_id = body.payer_id;
         //const amt = body.amt;
+        const PAYPAL_SANDBOX_RECEIVER_ID = "U7W8S29K5XCL4";
+
 
         if (tx && item_number && payment_status === "Completed" && receiver_id) {
 
             let pdt_url: string = "https://paypal.com/cgi-bin/webscr";
             let at: string | undefined = process.env.PAYPAL_API_KEY;
 
-            const sand = process.env.PAYPAL_SANDBOX_RECEIVER_ID;
-            if (receiver_id === sand) {
+            if (receiver_id === PAYPAL_SANDBOX_RECEIVER_ID) {
                 pdt_url = "https://sandbox.paypal.com/cgi-bin/webscr";
                 at = process.env.PAYPAL_SANDBOX_API_KEY;
             }

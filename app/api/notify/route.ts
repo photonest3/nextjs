@@ -21,6 +21,8 @@ export async function POST(request) {
         const payer_email = params.get('payer_email');
         const receiver_id = params.get('receiver_id');
 
+        const PAYPAL_SANDBOX_RECEIVER_ID = "U7W8S29K5XCL4";
+
         let lic: string = "";
         let mail: string = "N/A";
 
@@ -33,11 +35,10 @@ export async function POST(request) {
 
             let ipn_url: string = "https://ipnpb.paypal.com/cgi-bin/webscr";
 
-            const sand = process.env.PAYPAL_SANDBOX_RECEIVER_ID;
-            if (receiver_id === sand) {
+            if (receiver_id === PAYPAL_SANDBOX_RECEIVER_ID) {
                 ipn_url = "https://ipnpb.sandbox.paypal.com/cgi-bin/webscr";
             }
-            
+
             const res = await fetch(ipn_url,
                 {
                     method: 'POST',
