@@ -7,23 +7,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request) {
     let lic: string = "";
     try {
-        /*
-        let formData = await request.formData();
-        //const mc_gross = formData.get('mc_gross');
-         formData.set("cmd", "_notify-validate");   
-        */
-
         const text = await request.text();
-
         let params = new URLSearchParams(text);
-        /* const item_name = params.get('item_name');
-         const item_number = params.get('item_number');
-         const payment_status = params.get('payment_status');
-         const payer_email = params.get('payer_email');
-         const receiver_id = params.get('receiver_id');
-         */
-
         const item_number = params.get('PURCHASE_ID');//531856641
+
         //const item_name = params.get('ITEM_NAME');//Easy Creator
         //const payer_email = params.get('EMAIL');
         /* 
@@ -97,19 +84,18 @@ export async function POST(request) {
             }
 
             k = "order-" + item_number;
-            //await kv.set(k, lic);
-            //await kv.set(idx, nb + 1);
+            await kv.set(k, lic);
+            await kv.set(idx, nb + 1);
         }
 
         const myOptions = { status: 200, statusText: "OK", "Content-Type": "text/plain" };
-		
-		//url + "," + lic + "," + code + "," + item_number
+
+        //url + "," + lic + "," + code + "," + item_number
         const myResponse = new Response(lic, myOptions);
         return myResponse;
 
     } catch (error) {
     }
-
 
     const myOptions = { status: 500, statusText: "error", "Content-Type": "text/plain" };
     const myResponse = new Response(lic, myOptions);
