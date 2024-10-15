@@ -108,6 +108,6 @@ export async function GET(request) {
 
 
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+     return Response.json({ key: "error " });
   }
 }
