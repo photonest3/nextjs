@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="icon" href="./assets/favicon.png" />
+    <link rel="icon" href="./assets/img/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <link href="./assets/css/main.css" rel="stylesheet" />
     <title>PhotoNest - PC photo album maker software</title>
@@ -38,6 +38,9 @@
             padding-left: 0;
             text-decoration: underline;
         }
+		#ms:hover { color: var(--bs-link-hover-color);  }
+		#ms{text-decoration: none;
+		}
     </style>
 </head>
 
@@ -236,8 +239,10 @@
                         </div>
                     </div>
                 </div>
-
-				
+<p style="margin:30px 0;">
+			  <a href="https://www.microsoft.com/store/apps/9P7DM2LB17R4" target="_blank" id="ms"> 
+			 <img src="./assets/img/microsoft-logo-dark-1.png" height="32" alt="Microsoft Store" 
+                                                 class="svelte-hq7bev" /> &nbsp;Download and install on Windows | Microsoft Store </a></p>
                 <a name="subscribe"></a>
                 <div class="container my-5">
                     <div class="row pt-4">
@@ -306,7 +311,7 @@
                                             <input type="hidden" name="notify_url" id="notify_url"
                                                    value="https://www.photonest.io/api/notify">
                                             <input type="image" border="0" name="submit"
-                                                   src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif"
+                                                   src="./assets/img/btn_buynowCC_LG.gif"
                                                    alt="Buy Now">
                                         </form>
                                         <div class="svelte-hq7bev" id="buy_1">
