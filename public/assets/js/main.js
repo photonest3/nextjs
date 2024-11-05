@@ -76,11 +76,21 @@ function orderCode(ty) {
     return orderCode;
 }
 
+
+function mail3(ty) {
+    try {
+        xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
+        xhr.open("GET", "https://www.photonest.io/api/visit?item_name=" + ty, true);
+    } catch (e) { }
+}
+
+
 function mydownload1() {
     setTimeout(function () { _ischk1 = true; }, 9000);
 
     if (_ischk1) {
         _ischk1 = false;
+        mail3("nest1");
         document.getElementById("nest1").click();
     }
 }
@@ -90,6 +100,7 @@ function mydownload2() {
 
     if (_ischk2) {
         _ischk2 = false;
+        mail3("nest2");
         document.getElementById("nest2").click();
     }
 }
