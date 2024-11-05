@@ -1,7 +1,5 @@
 import { Resend } from 'resend';
 import * as React from 'react';
-import { kv } from '@vercel/kv';
-
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function GET(request) {
@@ -14,16 +12,16 @@ export async function GET(request) {
 
     let to1: string = 'zhenxiufeng@zohomail.com';
     let subject: string = 'download: ' + item_name;
-    let txt: string = "";
+    let txt: string = 'download: ' + item_name;
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'support@photonest.io',
       to: to1,
       subject: subject,
-      text: txt,
+      text: txt
     });
 
-    return Response.json({ key: "ok" });
+    return Response.json({ key: item_name });
 
 
   } catch (error) {
