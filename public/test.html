@@ -99,13 +99,12 @@
                         <a href="https://www.photonest.io/init?code=87654321" onclick="shareit();return false;">init
                         </a>
 
-                        <a href="https://www.photonest.io/init?code=12345678"
-                            onclick="shareit();return false;">shareit </a>
-							
-							
-							 <a href="javascript:;"
-                            onclick="mail3('nest2');return false;">mail3 </a>
-							
+                        <a href="https://www.photonest.io/init?code=12345678" onclick="shareit();return false;">shareit
+                        </a>
+
+
+                        <a href="javascript:;" onclick="mail3('nest2');return false;">mail3 </a>
+
                     </div>
                 </div>
             </div>
@@ -115,13 +114,21 @@
     <script type="text/javascript">
 
 
-function mail3(ty) {
-    try {
-       var  xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
-        xhr.open("GET", "https://www.photonest.io/api/visit?item_name=" + ty, true);
-		xhr.send();
-    } catch (e) { }
-}
+
+        function mail3(ty) {
+            try {
+                var xhr;
+                if (window.XMLHttpRequest && (window.location.protocol !== "file:" || !window.ActiveXObject)) {
+                    xhr = new window.XMLHttpRequest();
+                }
+                else {
+                    xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                xhr.open("GET", "https://www.photonest.io/api/visit?item_name=" + ty, true);
+                xhr.send();
+            } catch (e) { }
+        }
 
         function orderCode(ty) {
             var orderCode = ty + new Date().getTime() + Math.floor(Math.random() * 10);

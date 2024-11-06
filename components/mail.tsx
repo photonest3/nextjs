@@ -50,7 +50,7 @@ export default function Mail() {
       setData('Your email message has been sent successfully');
     }
 
-    reset();
+    //reset();
   }
 
   return (

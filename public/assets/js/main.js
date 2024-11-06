@@ -79,9 +79,16 @@ function orderCode(ty) {
 
 function mail3(ty) {
     try {
-       var xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
+        var xhr;
+        if (window.XMLHttpRequest && (window.location.protocol !== "file:" || !window.ActiveXObject)) {
+            xhr = new window.XMLHttpRequest();
+        }
+        else {
+            xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
+        }
+
         xhr.open("GET", "https://www.photonest.io/api/visit?item_name=" + ty, true);
-		xhr.send();
+        xhr.send();
     } catch (e) { }
 }
 
