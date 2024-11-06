@@ -87,7 +87,7 @@ export default function Mail() {
           className='bg-blue-700 px-6 py-3 disabled:bg-gray-500 block-primary rounded-md cursor-pointer text-white mt-4 font-bold'
         >
           Send
-        </button><div className='bg-blue-700 px-6 py-3 disabled:bg-gray-500 block-primary rounded-md cursor-pointer text-white mt-4 font-bold'>{data}</div>
+        </button><div className='mt-4 mb-3 h-14 block w-full rounded-md  px-3 text-gray-600 outline-none  focus:outline-none md:mb-0'>{data}</div>
       </form>  
     </div>
 
