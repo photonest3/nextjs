@@ -50,7 +50,7 @@ export default function Mail() {
       setData('Your email message has been sent successfully');
     }
 
-    //reset();
+    reset();
   }
 
   return (
@@ -87,8 +87,8 @@ export default function Mail() {
           className='bg-blue-700 px-6 py-3 disabled:bg-gray-500 block-primary rounded-md cursor-pointer text-white mt-4 font-bold'
         >
           Send
-        </button>
-      </form>  <div>{data}</div>
+        </button><div className='bg-blue-700 px-6 py-3 disabled:bg-gray-500 block-primary rounded-md cursor-pointer text-white mt-4 font-bold'>{data}</div>
+      </form>  
     </div>
 
   );
