@@ -58,7 +58,7 @@ export default function Mail() {
       <form
         onSubmit={handleSubmit(onSubmit)} // updated code
         className='mb-10 mt-5 flex w-full flex-col rounded-md bg-white p-5 py-14 shadow-lg md:max-w-3xl md:px-10 mx-auto'
-      >
+      ><div className='mt-4 mb-3 h-14 block w-full rounded-md  px-3 text-gray-600 outline-none  focus:outline-none md:mb-0'>{data}</div>
         <input
           className='mt-4 mb-3 h-14 block w-full rounded-md border px-3 text-gray-600 outline-none focus:border-stone-500 focus:outline-none md:mb-0'
           type='text'
@@ -87,7 +87,7 @@ export default function Mail() {
           className='bg-blue-700 px-6 py-3 disabled:bg-gray-500 block-primary rounded-md cursor-pointer text-white mt-4 font-bold'
         >
           Send
-        </button><div className='mt-4 mb-3 h-14 block w-full rounded-md  px-3 text-gray-600 outline-none  focus:outline-none md:mb-0'>{data}</div>
+        </button>
       </form>  
     </div>
 
