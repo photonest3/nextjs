@@ -23,8 +23,7 @@ export async function GET(request) {
 
     return Response.json({ key: item_name });
 
-
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    return Response.json({ key: "err" });
   }
 }

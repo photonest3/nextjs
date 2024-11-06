@@ -1,4 +1,4 @@
-// components/contactus.tsx
+// components/mail.tsx
 
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
@@ -12,7 +12,7 @@ type FormInput = {
 };
 
 export default function Mail() {
-  const [data, setData] = useState<string>("");
+  const [data, setData] = useState<string>("Reply mail");
 
   const {
     register,
@@ -47,7 +47,7 @@ export default function Mail() {
       setData(JSON.stringify(data2));
     }
     else {
-      setData('Your email message has been sent successfully');
+      setData('Reply email message has been sent successfully');
     }
 
     reset();
@@ -58,7 +58,8 @@ export default function Mail() {
       <form
         onSubmit={handleSubmit(onSubmit)} // updated code
         className='mb-10 mt-5 flex w-full flex-col rounded-md bg-white p-5 py-14 shadow-lg md:max-w-3xl md:px-10 mx-auto'
-      ><div className='mt-4 mb-3 h-14 block w-full rounded-md  px-3 text-gray-600 outline-none  focus:outline-none md:mb-0'>{data}</div>
+      >
+        <div className='mt-4 mb-3 h-14 block w-full rounded-md  px-3 text-gray-600 outline-none  focus:outline-none md:mb-0'>{data}</div>
         <input
           className='mt-4 mb-3 h-14 block w-full rounded-md border px-3 text-gray-600 outline-none focus:border-stone-500 focus:outline-none md:mb-0'
           type='text'
@@ -88,7 +89,7 @@ export default function Mail() {
         >
           Send
         </button>
-      </form>  
+      </form>
     </div>
 
   );
