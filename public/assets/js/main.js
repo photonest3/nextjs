@@ -148,7 +148,7 @@ function init() {
 }
 
 window.onload = function () {
-    document.getElementById("item_number").value = orderCode("1");
+   // document.getElementById("item_number").value = orderCode("1");
 
     var nav = document.querySelector('.dropdown-menu');
     nav.style.display = 'none';

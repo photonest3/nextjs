@@ -12,7 +12,9 @@
     <meta name="description"
         content="PC photo album maker software, map browsing, face classification, photo editing." />
     <style type="text/css">
-
+        #yearly {
+            color: #0a58ca;
+        }
     </style>
 </head>
 
@@ -21,7 +23,7 @@
         <div>
             <nav class="navbar navbar-expand-lg bg-light">
                 <div class="container">
-                    <a href="" class="navbar-brand svelte-gcmp2g">
+                    <a href="./index.html" class="navbar-brand svelte-gcmp2g">
                         <img src="./assets/img/favicon.png" style="height: 32px;" alt="PhotoNest" class="me-1" />
                         <span id="nav_1">PhotoNest - Organize your media library in a flexible, smart way</span>
                     </a>
@@ -33,7 +35,7 @@
                     <div class="navbar-collapse justify-content-end collapse show" id="navbarSupportedContent">
                         <ul class="navbar-nav mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link svelte-gcmp2g active" href="" id="nav_0">Home</a>
+                                <a class="nav-link svelte-gcmp2g active" href="./index.html" id="nav_0">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="nav_2" href="javascript:;" class="nav-link dropdown-toggle" role="button"
@@ -45,9 +47,9 @@
                                             onclick="_change('');return false;">English</a>
                                     </li>
                                     <!--<li>
-                                        <a data-sveltekit-reload class="dropdown-item" href="javascript:;"
-                                           onclick="_change('cn');return false;">简体中文</a>
-                                    </li>-->
+                                    <a data-sveltekit-reload class="dropdown-item" href="javascript:;"
+                                       onclick="_change('cn');return false;">简体中文</a>
+                                </li>-->
                                 </ul>
                             </li>
                         </ul>
@@ -239,7 +241,8 @@ Organize your media library in a flexible, smart way -->
                                             </button>
                                         </div>
                                         <div class="tns-liveregion tns-visually-hidden" aria-live="polite"
-                                            aria-atomic="true">slide<span class="current">2</span>of 3</div>
+                                            aria-atomic="true">slide<span class="current">2</span>of 3
+                                        </div>
                                         <div id="tns1-mw" class="tns-ovh">
                                             <div class="tns-inner" id="tns1-iw">
                                                 <div class="testimonial-active  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
@@ -247,7 +250,7 @@ Organize your media library in a flexible, smart way -->
                                                     style="transform: translate3d(-20%, 0px, 0px); transition-duration: 0s;">
                                                     <div class="single-testimonial tns-item tns-slide-active"
                                                         id="tns1-item0">
-                                                        <div class="quote"> <i class="lni lni-quotation"></i> </div>
+                                                        <div class="quote"><i class="lni lni-quotation"></i></div>
                                                         <div class="content">
                                                             <p id="like_1">
                                                                 PhotoNest is a full-featured and intuitive tool that's
@@ -261,7 +264,7 @@ Organize your media library in a flexible, smart way -->
                                                     </div>
                                                     <div class="single-testimonial tns-item" id="tns1-item1"
                                                         aria-hidden="true" tabindex="-1">
-                                                        <div class="quote"> <i class="lni lni-quotation"></i> </div>
+                                                        <div class="quote"><i class="lni lni-quotation"></i></div>
                                                         <div class="content">
                                                             <p id="like_2">
                                                                 PhotoNest's powerful search filters make it easy to find
@@ -275,7 +278,7 @@ Organize your media library in a flexible, smart way -->
                                                     </div>
                                                     <div class="single-testimonial tns-item" id="tns1-item2"
                                                         aria-hidden="true" tabindex="-1">
-                                                        <div class="quote"> <i class="lni lni-quotation"></i> </div>
+                                                        <div class="quote"><i class="lni lni-quotation"></i></div>
                                                         <div class="content">
                                                             <p id="like_3">
                                                                 PhotoNest provides us with photo editing features that
@@ -296,82 +299,79 @@ Organize your media library in a flexible, smart way -->
                         </div>
                     </div>
                 </section>
-<!--
                 <a name="subscribe"></a>
                 <div class="container my-5">
-                    <div class="row pt-4">
-                        <div class="col">
-                            <h3>
-                                <span id="yearly">Pricing</span>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="row mt-4">
-                       
-                        <div class="col-lg">
-                            <span class="download-box svelte-hq7bev">
-                                <div class="download-box-icon svelte-hq7bev">
-                                </div>
-                                <div class="dl-desc svelte-hq7bev">
-                                    <div id="buy">
-                                        PhotoNest
-                                    </div>
-                                    <div class="svelte-hq7bev" id="buy_3">
-                                    </div>
-                                    <div class="price-button mt-2">
-                                        <div style="display: inline-block; vertical-align: top;">
-                                            <label>
-                                                <input style="display: inline-block;" type="radio" value="1"
-                                                    name="lic_type" checked onchange="on_change(this)" />
-                                                <span class="lic">1-year License $45.49 USD</span>
-                                            </label>
-                                            <br />
-                                            <label>
-                                                <input style="display: inline-block;" type="radio" value="2"
-                                                    name="lic_type" onchange="on_change(this)" />
-                                                <span class="lic">2-year License $79.46 USD </span>
-                                            </label>
-                                            <br />
-                                            <label>
-                                                <input style="display: inline-block;" type="radio" value="3"
-                                                    name="lic_type" onchange="on_change(this)" />
-                                                <span class="lic">Perpetual License $97.16 USD</span>
-                                            </label>
-                                        </div>
-                                        <form id="payment" action="https://www.paypal.com/cgi-bin/webscr" method="post"
-                                            style="display: inline-block; margin-left: 15px;">
-                                            <input type="hidden" name="cmd" value="_xclick" />
-                                            <input type="hidden" name="business" id="business"
-                                                value="sales@photonest.io" />
-                                            <input type="hidden" name="undefined_quantity" value="1" />
-                                            <input type="hidden" name="item_name" id="item_name"
-                                                value="photonest (1-year license)" />
-                                            <input type="hidden" name="item_number" id="item_number" value="dd01" />
-                                            <input type="hidden" name="amount" id="amount" value="45.49" />
-                                            <input type='hidden' name='no_shipping' value='1' />
-                                            <input type="hidden" name="currency_code" value="USD" />
-                                            <input type="hidden" name="return" value="https://www.photonest.io/back" />
-                                            <input type="hidden" name="cancel_return"
-                                                value="https://www.photonest.io/index.html#subscribe" />
-                                            <input type="hidden" name="notify_url" id="notify_url"
-                                                value="https://www.photonest.io/api/notify" />
-                                            <input type="image" border="0" name="submit"
-                                                src="./assets/img/btn_buynowCC_LG.gif" alt="Buy Now" />
-                                        </form>
-                                        <div class="svelte-hq7bev" id="buy_1">
-                                            PhotoNest and encrypted version serial numbers are universal, saving you
-                                            money.
-                                        </div>
-                                    </div>
-                                </div>
-                            </span>
-                        </div>
-                        <div class="col-lg">
-                        </div>
-                    </div>
+                    <!--   <div class="row pt-4">
+                       <div class="col">
+                           <h3>
+                               <span id="yearly"><a class="nav-link svelte-gcmp2g active" href="./pricing.html" id="nav_0">Pricing</a></span>
+                           </h3>
+                       </div>
+                   </div>
+
+                   <div class="row mt-4">
+                       <div class="col-lg">
+                           <span class="download-box svelte-hq7bev">
+                               <div class="download-box-icon svelte-hq7bev">
+                               </div>
+                               <div class="dl-desc svelte-hq7bev">
+                                   <div id="buy">
+                                       PhotoNest
+                                   </div>
+                                   <div class="svelte-hq7bev" id="buy_3">
+                                   </div>
+                                   <div class="price-button mt-2">
+                                       <div style="display: inline-block; vertical-align: top;">
+                                           <label>
+                                               <input style="display: inline-block;" type="radio" value="1"
+                                                   name="lic_type" checked onchange="on_change(this)" />
+                                               <span class="lic">1-year License $45.49 USD</span>
+                                           </label>
+                                           <br />
+                                           <label>
+                                               <input style="display: inline-block;" type="radio" value="2"
+                                                   name="lic_type" onchange="on_change(this)" />
+                                               <span class="lic">2-year License $79.46 USD </span>
+                                           </label>
+                                           <br />
+                                           <label>
+                                               <input style="display: inline-block;" type="radio" value="3"
+                                                   name="lic_type" onchange="on_change(this)" />
+                                               <span class="lic">Perpetual License $97.16 USD</span>
+                                           </label>
+                                       </div>
+                                       <form id="payment" action="https://www.paypal.com/cgi-bin/webscr" method="post"
+                                           style="display: inline-block; margin-left: 15px;">
+                                           <input type="hidden" name="cmd" value="_xclick" />
+                                           <input type="hidden" name="business" id="business"
+                                               value="sales@photonest.io" />
+                                           <input type="hidden" name="undefined_quantity" value="1" />
+                                           <input type="hidden" name="item_name" id="item_name"
+                                               value="photonest (1-year license)" />
+                                           <input type="hidden" name="item_number" id="item_number" value="dd01" />
+                                           <input type="hidden" name="amount" id="amount" value="45.49" />
+                                           <input type='hidden' name='no_shipping' value='1' />
+                                           <input type="hidden" name="currency_code" value="USD" />
+                                           <input type="hidden" name="return" value="https://www.photonest.io/back" />
+                                           <input type="hidden" name="cancel_return"
+                                               value="https://www.photonest.io/index.html#subscribe" />
+                                           <input type="hidden" name="notify_url" id="notify_url"
+                                               value="https://www.photonest.io/api/notify" />
+                                           <input type="image" border="0" name="submit"
+                                               src="./assets/img/btn_buynowCC_LG.gif" alt="Buy Now" />
+                                       </form>
+                                       <div class="svelte-hq7bev" id="buy_1">
+                                           PhotoNest and encrypted version serial numbers are universal, saving you
+                                           money.
+                                       </div>
+                                   </div>
+                               </div>
+                           </span>
+                       </div>
+                       <div class="col-lg">
+                       </div>
+                   </div>-->
                 </div>
-				
-				-->
                 <div class="container my-5">
                     <div class="row pt-4">
                         <div class="col">
@@ -401,6 +401,28 @@ Organize your media library in a flexible, smart way -->
                     </div>
                 </div>
                 <!--It is available for a 30-day evaluation. After this trial period, If you would like to continue using this software, you should order a license.-->
+
+                <div class="container my-5">
+                    <div class="row pt-4">
+                        <div class="col">
+                            <h3>
+                                <span id="yearly">
+                                    <a class="download-box svelte-hq7bev0" href="./pricing.html">
+                                        <div class="download-box-icon svelte-hq7bev">
+                                            <img src="./assets/img/favicon.png" alt="Pricing" class="svelte-hq7bev"
+                                                style="width:32px;" />
+                                        </div>
+                                        <div class="dl-desc svelte-hq7bev">
+                                            <div>
+                                                Pricing
+                                            </div>
+                                        </div>
+                                    </a>
+                                </span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
             </div>
             <footer class="svelte-1t3qg6">
                 <div class="container svelte-1t3qg6">
@@ -414,6 +436,7 @@ Organize your media library in a flexible, smart way -->
                         <a href="/contactus">
                             <span>[email&#160;sales@photonest.io]</span>
                         </a>
+
                     </div>
                 </div>
             </footer>
