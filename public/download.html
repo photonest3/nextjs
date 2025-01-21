@@ -55,11 +55,12 @@
                         var a = document.createElement('a');
                         a.download = filename;
                         a.href = URL.createObjectURL(blob);
-                        document.body.append(a);
+                       document.body.appendChild(a);
                         a.click();
+						document.body.removeChild(a);
                         URL.revokeObjectURL(a.href);
 
-                        document.getElementById("tip").innerHTML = "Completed";
+                        document.getElementById("tip").innerHTML = "Download complete";
                     }
                 };
 
