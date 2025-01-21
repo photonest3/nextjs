@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" href="./assets/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="./assets/css/main.css" rel="stylesheet" />
+    <title>PhotoNest</title>
+    <meta name="keywords"
+        content="Digital photo album software, digital camera software, photo cataloging software ,slideshow software, photo organizer software,gallery software" />
+    <meta name="description"
+        content="The ultimate photo gallery software, designed for families and individuals, supports encrypted storage." />
+
+</head>
+
+<body data-sveltekit-preload-data="hover">
+    <div style="display: contents">
+        <div>
+            <div class="container">
+                <div class="container my-5">
+                    <div class="row mt-4">
+                        <div class="col-lg">
+                            <span id="tip" style="display: block;   text-align: center;">
+                                Downloading...
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+        function download(url, filename) {
+            try {
+                var xhr;
+                if (window.XMLHttpRequest && (window.location.protocol !== "file:" || !window.ActiveXObject)) {
+                    xhr = new window.XMLHttpRequest();
+                }
+                else {
+                    xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                xhr.open("GET", url, true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.responseType = "blob";
+
+                xhr.onload = function () {
+                    if (this.status === 200) {
+                        var blob = this.response;
+
+                        var a = document.createElement('a');
+                        a.download = filename;
+                        a.href = URL.createObjectURL(blob);
+                        document.body.append(a);
+                        a.click();
+                        URL.revokeObjectURL(a.href);
+
+                        document.getElementById("tip").innerHTML = "Completed";
+                    }
+                };
+
+                xhr.send();
+            } catch (e) { }
+        }
+
+        function mail3(ty) {
+            try {
+                var xhr;
+                if (window.XMLHttpRequest && (window.location.protocol !== "file:" || !window.ActiveXObject)) {
+                    xhr = new window.XMLHttpRequest();
+                }
+                else {
+                    xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                xhr.open("GET", "https://www.photonest.io/api/visit?item_name=" + ty, true);
+                xhr.send();
+            } catch (e) { }
+        }
+
+        window.onload = function () {
+            setTimeout(function () {
+                if (location.href.indexOf("nest1") > 0) {
+
+                    download("https://v2.photonest.io/photonest-setup-3.0.25.0.exe", "photonest-setup-3.10.2.9.exe");
+
+                    mail3("nest1");
+                }
+                else {
+
+                    download("https://v2.photonest.io/photonest-encryption-setup-3.0.25.0.exe", "photonest-encryption-setup-3.0.25.0.exe");
+
+                    //download("./assets/photonest-setup-3.10.2.9.exe", "photonest-setup-3.10.2.9.exe");
+                    mail3("nest2");
+                }
+            }, 1000);
+        };
+
+    </script>
+</body>
+
+</html>

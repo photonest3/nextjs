@@ -76,43 +76,6 @@ function orderCode(ty) {
     return orderCode;
 }
 
-
-function mail3(ty) {
-    try {
-        var xhr;
-        if (window.XMLHttpRequest && (window.location.protocol !== "file:" || !window.ActiveXObject)) {
-            xhr = new window.XMLHttpRequest();
-        }
-        else {
-            xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
-        }
-
-        xhr.open("GET", "https://www.photonest.io/api/visit?item_name=" + ty, true);
-        xhr.send();
-    } catch (e) { }
-}
-
-
-function mydownload1() {
-    setTimeout(function () { _ischk1 = true; }, 9000);
-
-    if (_ischk1) {
-        _ischk1 = false;
-        mail3("nest1");
-        document.getElementById("nest1").click();
-    }
-}
-
-function mydownload2() {
-    setTimeout(function () { _ischk2 = true; }, 9000);
-
-    if (_ischk2) {
-        _ischk2 = false;
-        mail3("nest2");
-        document.getElementById("nest2").click();
-    }
-}
-
 function on_change() {
 
     var ty = document.querySelector('[name="lic_type"]:checked').value;
@@ -148,7 +111,7 @@ function init() {
 }
 
 window.onload = function () {
-   // document.getElementById("item_number").value = orderCode("1");
+    // document.getElementById("item_number").value = orderCode("1");
 
     var nav = document.querySelector('.dropdown-menu');
     nav.style.display = 'none';
