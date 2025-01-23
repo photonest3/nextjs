@@ -96,7 +96,8 @@
                             window.open(URL.createObjectURL(file));
                         }
 
-                        //document.getElementById("tip").innerHTML = "Download complete";
+                        document.getElementById("tip").innerHTML = "Download complete";
+						document.getElementById("myProgress").style.display='none';
                     }
                 };
 
@@ -118,7 +119,7 @@
 
                 xhr.onload = function () {
                     if (this.status === 200) {
-                        window.location.replace("./compl.html");
+                       // window.location.replace("./compl.html");
                     }
                 }
 
