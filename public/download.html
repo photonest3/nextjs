@@ -11,7 +11,19 @@
         content="Digital photo album software, digital camera software, photo cataloging software ,slideshow software, photo organizer software,gallery software" />
     <meta name="description"
         content="The ultimate photo gallery software, designed for families and individuals, supports encrypted storage." />
+    <style>
+        #myProgress {
+            width: 100%;
+            background-color: #ddd;
+            margin-top: 30px;
+        }
 
+        #myBar {
+            width: 1%;
+            height: 10px;
+            background-color: #4CAF50;
+        }
+    </style>
 </head>
 
 <body data-sveltekit-preload-data="hover">
@@ -21,9 +33,15 @@
                 <div class="container my-5">
                     <div class="row mt-4">
                         <div class="col-lg">
+
                             <span id="tip" style="display: block;   text-align: center;">
                                 Downloading...
                             </span>
+
+                            <div id="myProgress">
+                                <div id="myBar"></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -48,17 +66,35 @@
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.responseType = "blob";
 
+                xhr.onprogress = function (evt) {
+                    if (evt.lengthComputable) {
+                        var elem = document.getElementById("myBar");
+                        var progress = (evt.loaded / evt.total) * 100;
+                        elem.style.width = progress + '%';
+                    }
+                };
+
                 xhr.onload = function () {
                     if (this.status === 200) {
-                        var blob = this.response;
+                        if (typeof window.chrome !== 'undefined') {
+                            // Chrome version
+                            var link = document.createElement('a');
+                            link.href = window.URL.createObjectURL(xhr.response);
 
-                        var a = document.createElement('a');
-                        a.download = filename;
-                        a.href = URL.createObjectURL(blob);
-                       document.body.appendChild(a);
-                        a.click();
-						document.body.removeChild(a);
-                        URL.revokeObjectURL(a.href);
+                            link.download = filename;
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                            URL.revokeObjectURL(link.href);
+                        } else if (typeof window.navigator.msSaveBlob !== 'undefined') {
+                            // IE version
+                            var blob = new Blob([xhr.response], { type: 'application/force-download' });
+                            window.navigator.msSaveBlob(blob, filename);
+                        } else {
+                            // Firefox version
+                            var file = new File([xhr.response], filename, { type: 'application/force-download' });
+                            window.open(URL.createObjectURL(file));
+                        }
 
                         document.getElementById("tip").innerHTML = "Download complete";
                     }
@@ -79,12 +115,29 @@
                 }
 
                 xhr.open("GET", "https://www.photonest.io/api/visit?item_name=" + ty, true);
+
+                xhr.onload = function () {
+                    if (this.status === 200) {
+                        window.location.replace("./compl.html");
+                    }
+                }
+
                 xhr.send();
+
             } catch (e) { }
         }
 
         window.onload = function () {
+            if (location.href.indexOf("nest1") > 0) {
+                document.getElementById("tip").innerHTML = "photonest-setup-3.10.2.9.exe downloading ... ";
+            }
+            else {
+                document.getElementById("tip").innerHTML = "photonest-encryption-setup-3.0.25.0.exe downloading ... ";
+            }
+
+
             setTimeout(function () {
+
                 if (location.href.indexOf("nest1") > 0) {
 
                     download("https://v2.photonest.io/photonest-setup-3.0.25.0.exe", "photonest-setup-3.10.2.9.exe");
@@ -93,9 +146,9 @@
                 }
                 else {
 
-                    download("https://v2.photonest.io/photonest-encryption-setup-3.0.25.0.exe", "photonest-encryption-setup-3.0.25.0.exe");
+                     download("https://v2.photonest.io/photonest-encryption-setup-3.0.25.0.exe", "photonest-encryption-setup-3.0.25.0.exe");
 
-                    //download("./assets/photonest-setup-3.10.2.9.exe", "photonest-setup-3.10.2.9.exe");
+                   // download("./assets/photonest-setup-3.10.2.9.exe", "photonest-setup-3.10.2.9.exe");
                     mail3("nest2");
                 }
             }, 1000);
