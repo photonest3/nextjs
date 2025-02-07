@@ -97,7 +97,12 @@
                         }
 
                         document.getElementById("tip").innerHTML = "Download complete";
-						document.getElementById("myProgress").style.display='none';
+                        document.getElementById("myProgress").style.display = 'none';
+
+                        //var storage = window.localStorage;
+                        //if (storage) {
+                        //    storage.a = '0';
+                        //}
                     }
                 };
 
@@ -119,7 +124,7 @@
 
                 xhr.onload = function () {
                     if (this.status === 200) {
-                       // window.location.replace("./compl.html");
+                        // window.location.replace("./compl.html");
                     }
                 }
 
@@ -129,28 +134,41 @@
         }
 
         window.onload = function () {
-            if (location.href.indexOf("nest1") > 0) {
-                document.getElementById("tip").innerHTML = "photonest-setup-3.10.2.9.exe downloading ... ";
-            }
-            else {
+            /*
+                        var storage = window.localStorage;
+                        if (storage && storage.a) {
+                            if (storage.a == '0') {
+                                if (location.href.indexOf("nest") > 0) {
+                                    document.getElementById("tip").innerHTML = "Download complete";
+                                    document.getElementById("myProgress").style.display = 'none';
+                                }
+                                return;
+                            }
+                        }
+            */
+
+
+            if (location.href.indexOf("nest2") > 0) {
                 document.getElementById("tip").innerHTML = "photonest-encryption-setup-3.0.25.0.exe downloading ... ";
             }
-
+            else {
+                document.getElementById("tip").innerHTML = "photonest-setup-3.10.2.9.exe downloading ... ";
+            }
 
             setTimeout(function () {
 
-                if (location.href.indexOf("nest1") > 0) {
+                if (location.href.indexOf("nest2") > 0) {
+
+                    download("https://v2.photonest.io/photonest-encryption-setup-3.0.25.0.exe", "photonest-encryption-setup-3.0.25.0.exe");
+
+                    //  download("./assets/photonest-setup-3.10.2.9.exe", "photonest-setup-3.10.2.9.exe");
+                    mail3("nest2");
+                }
+                else {
 
                     download("https://v2.photonest.io/photonest-setup-3.0.25.0.exe", "photonest-setup-3.10.2.9.exe");
 
                     mail3("nest1");
-                }
-                else {
-
-                     download("https://v2.photonest.io/photonest-encryption-setup-3.0.25.0.exe", "photonest-encryption-setup-3.0.25.0.exe");
-
-                   // download("./assets/photonest-setup-3.10.2.9.exe", "photonest-setup-3.10.2.9.exe");
-                    mail3("nest2");
                 }
             }, 1000);
         };
