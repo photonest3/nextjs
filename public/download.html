@@ -149,24 +149,24 @@
 
 
             if (location.href.indexOf("nest2") > 0) {
-                document.getElementById("tip").innerHTML = "photonest-encryption-setup-3.0.26.0.exe <br/>downloading ... ";
+                document.getElementById("tip").innerHTML = "photonest-encryption-setup-3.0.27.0.exe <br/>downloading ... ";
             }
             else {
-                document.getElementById("tip").innerHTML = "photonest-setup-3.0.26.0.exe  <br/>downloading ... ";
+                document.getElementById("tip").innerHTML = "photonest-setup-3.0.27.0.exe  <br/>downloading ... ";
             }
 
             setTimeout(function () {
 
                 if (location.href.indexOf("nest2") > 0) {
 
-                    download("https://v2.photonest.io/photonest-encryption-setup-3.0.26.0.exe", "photonest-encryption-setup-3.0.26.0.exe");
+                    download("https://v2.photonest.io/photonest-encryption-setup-3.0.27.0.exe", "photonest-encryption-setup-3.0.27.0.exe");
 
                     //  download("./assets/photonest-setup-3.10.2.9.exe", "photonest-setup-3.10.2.9.exe");
                     mail3("nest2");
                 }
                 else {
 
-                    download("https://v2.photonest.io/photonest-setup-3.0.26.0.exe", "photonest-setup-3.0.26.0.exe");
+                    download("https://v2.photonest.io/photonest-setup-3.0.27.0.exe", "photonest-setup-3.0.27.0.exe");
 
                     mail3("nest1");
                 }
