@@ -96,7 +96,7 @@
                             window.open(URL.createObjectURL(file));
                         }
 
-                        document.getElementById("tip").innerHTML = filename +" download complete";
+                        document.getElementById("tip").innerHTML = filename +" <br/>download complete";
                         document.getElementById("myProgress").style.display = 'none';
 
                         //var storage = window.localStorage;
@@ -152,7 +152,7 @@
                 document.getElementById("tip").innerHTML = "photonest-encryption-setup-3.0.27.0.exe <br/>downloading ... ";
             }
             else {
-                document.getElementById("tip").innerHTML = "photonest-setup-3.0.27.0.exe  <br/>downloading ... ";
+                document.getElementById("tip").innerHTML = "photonest-setup-3.0.27.0.exe <br/>downloading ... ";
             }
 
             setTimeout(function () {
