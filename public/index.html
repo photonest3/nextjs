@@ -105,7 +105,7 @@ Organize your media library in a flexible, smart way  Start your free trial-->
 							
 							
 							
-							<span class="latest-code-change">1 days ago</span>
+							<span id="latest-code-change" class="latest-code-change">1 days ago</span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -494,7 +494,25 @@ Organize your media library in a flexible, smart way  Start your free trial-->
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script type="text/javascript" src="" id="i18n"></script>
     <script type="text/javascript">
+function getDaysBetween(date1) {
+    const t1 = new Date(date1.replace(/-/g, '/')).getTime();
+    const t2 = new Date().getTime();
+    return Math.ceil(Math.abs(t1 - t2) / (1000 * 3600 * 24)); 
+}
 
+var ti="";
+var   r=getDaysBetween('2025-03-01');
+if(r>30){
+r=r%30;
+ti= r + " months ago";
+}
+else{
+ti= r + " days ago";
+}
+document.getElementById("latest-code-change").innerHTML=ti;
+
+// 示例：计算2024-05-01与2024-05-10间隔天数
+//alert(ti); // 输出9‌:ml-citation{ref="1,2" data="citationList"}
     </script>
 </body>
 

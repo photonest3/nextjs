@@ -110,6 +110,12 @@ function init() {
     });
 }
 
+function getDaysBetween(date1) {
+    const t1 = new Date(date1.replace(/-/g, '/')).getTime();
+    const t2 = new Date().getTime();
+    return Math.ceil(Math.abs(t1 - t2) / (1000 * 3600 * 24)); 
+}
+
 window.onload = function () {
     // document.getElementById("item_number").value = orderCode("1");
 
@@ -156,5 +162,16 @@ window.onload = function () {
             nav.style.display = 'none';
         }
     };
+		
+	var ti="";
+	var   r=getDaysBetween('2025-03-01');
+	if(r>30){
+		r=r%30;
+		ti= r + " months ago";
+	}
+	else{
+		ti= r + " days ago";
+	}
+	document.getElementById("latest-code-change").innerHTML=ti;	
 
 };
