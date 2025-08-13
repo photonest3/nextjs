@@ -163,15 +163,5 @@ window.onload = function () {
         }
     };
 		
-	var ti="";
-	var   r=getDaysBetween('2025-03-01');
-	if(r>30){
-		r=r%30;
-		ti= r + " months ago";
-	}
-	else{
-		ti= r + " days ago";
-	}
-	document.getElementById("latest-code-change").innerHTML=ti;	
 
 };
