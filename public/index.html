@@ -105,7 +105,7 @@ Organize your media library in a flexible, smart way  Start your free trial-->
 							
 							
 							
-							<span id="latest-code-change" class="latest-code-change"></span>
+							<span id="ago" class="latest-code-change"></span>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -499,7 +499,7 @@ Organize your media library in a flexible, smart way  Start your free trial-->
 		const t2 = new Date().getTime();
 		return Math.ceil(Math.abs(t1 - t2) / (1000 * 3600 * 24)); 
 	}
-	window.onload = function () {
+	function aaa() {
 		var ti="";
 		var   r=getDaysBetween('2025-03-01');
 		if(r>30){
@@ -509,8 +509,10 @@ Organize your media library in a flexible, smart way  Start your free trial-->
 		else{
 			ti= r + " days ago";
 		}
-		document.getElementById("latest-code-change").innerHTML=ti;
+		document.getElementById("ago").innerHTML=ti;
 	}
+	
+	setTimeout(aaa,10);
     </script>
 </body>
 
