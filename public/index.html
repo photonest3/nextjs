@@ -493,27 +493,6 @@ Organize your media library in a flexible, smart way  Start your free trial-->
     <script type="text/javascript" src="assets/js/wow.min.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
     <script type="text/javascript" src="" id="i18n"></script>
-    <script type="text/javascript">
-	function getDaysBetween(date1) {
-		const t1 = new Date(date1.replace(/-/g, '/')).getTime();
-		const t2 = new Date().getTime();
-		return Math.ceil(Math.abs(t1 - t2) / (1000 * 3600 * 24)); 
-	}
-	function aaa() {
-		var ti="";
-		var   r=getDaysBetween('2025-03-01');
-		if(r>30){
-			r=r/30;
-			ti= Math.floor(r) + " months ago";
-		}
-		else{
-			ti= r + " days ago";
-		}
-		document.getElementById("ago").innerHTML=ti;
-	}
-	
-	setTimeout(aaa,10);
-    </script>
 </body>
 
 </html>

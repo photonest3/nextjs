@@ -103,7 +103,7 @@ function init() {
     new WOW().init();
     tns({
         container: '.testimonial-active',
-        autoplay: false,
+        autoplay: true,
         autoplayTimeout: 5000, autoplayButtonOutput: false, mouseDrag: true, gutter: 0, nav: false,
         navPosition: "bottom", controls: true,
         controlsText: ['<i class="lni lni-chevron-left"></i>', '<i class="lni lni-chevron-right"></i>',], items: 1,
@@ -111,9 +111,21 @@ function init() {
 }
 
 function getDaysBetween(date1) {
-    const t1 = new Date(date1.replace(/-/g, '/')).getTime();
-    const t2 = new Date().getTime();
-    return Math.ceil(Math.abs(t1 - t2) / (1000 * 3600 * 24)); 
+	const t1 = new Date(date1.replace(/-/g, '/')).getTime();
+	const t2 = new Date().getTime();
+	return Math.ceil(Math.abs(t1 - t2) / (1000 * 3600 * 24)); 
+}
+function aaa() {
+	var ti="";
+	var   r=getDaysBetween('2025-03-01');
+	if(r>30){
+		r=r/30;
+		ti= Math.floor(r) + " months ago";
+	}
+	else{
+		ti= r + " days ago";
+	}
+	document.getElementById("ago").innerHTML=ti;
 }
 
 window.onload = function () {
@@ -163,5 +175,5 @@ window.onload = function () {
         }
     };
 		
-
+	setTimeout(aaa,0);
 };
